@@ -12,17 +12,15 @@ const ContactForm = () => {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form data-testid="form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">First Name*</label>
           <input
             name="firstName"
             placeholder="bill"
-            ref={register({ required: true, maxLength: 3 })}
+            data-testid="firstName"
+            required="true"
           />
-          {errors.firstName && (
-            <p>Looks like there was an error: {errors.firstName.type}</p>
-          )}
         </div>
 
         <div>
@@ -30,11 +28,9 @@ const ContactForm = () => {
           <input
             name="lastName"
             placeholder="luo"
-            ref={register({ required: true })}
+            data-testid="lastName"
+            required="true"
           />
-          {errors.lastName && (
-            <p>Looks like there was an error: {errors.lastName.type}</p>
-          )}
         </div>
 
         <div>
@@ -55,7 +51,7 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <input data-testid="button" type="submit" />
       </form>
     </div>
   );
